@@ -1,0 +1,18 @@
+# exposes postgres service to other pods/services
+apiVersion: v1
+kind: Service
+metadata:
+  # db - this is what our apps use
+  name: db
+  labels:
+    name: db-service
+    app: demo-voting-app
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    # copied from postgres-pod
+    # links service to postgres pod
+    name: postgres-pod
+    app: demo-voting-app

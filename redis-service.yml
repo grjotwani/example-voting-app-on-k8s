@@ -1,0 +1,17 @@
+# exposes redis service to other pods/services
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    name: redis-service
+    app: demo-voting-app
+spec:
+  ports:
+    - port: 6379
+      targetPort: 6379
+  selector:
+    # copied form redis-pod
+    # links service to redis pod
+    name: redis-pod
+    app: demo-voting-app

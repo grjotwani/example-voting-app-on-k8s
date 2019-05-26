@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker-app-pod
+  labels:
+    name: worker-app-pod
+    app: demo-voting-app
+spec:
+  containers:
+    - name: worker-app
+      # https://hub.docker.com/r/dockersamples/examplevotingapp_worker
+      image: dockersamples/examplevotingapp_worker
+      # no ports since worker is not a web app
+      #ports:
+        #- containerPort: 80

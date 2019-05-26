@@ -1,0 +1,21 @@
+# exposes redis service to other pods/services
+apiVersion: v1
+kind: Service
+metadata:
+  name: result-service
+  labels:
+    name: result-service
+    app: demo-voting-app
+spec:
+  # This is not an internal service - default is clusterIp.
+  # They are internal to cluster.
+  # LoadBalancer changes it to be accessible outside cluster.
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    # copied form result-pod
+    # links service to result pod
+    name: result-app-pod
+    app: demo-voting-app
