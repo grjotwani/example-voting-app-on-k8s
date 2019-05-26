@@ -10,10 +10,11 @@ spec:
   # This is not an internal service - default is clusterIp.
   # They are internal to cluster.
   # LoadBalancer changes it to be accessible outside cluster.
+  # LB service only works on cloud platforms ex aws, gcp
   type: LoadBalancer
   ports:
-    - port: 6379
-      targetPort: 6379
+    - port: 80
+      targetPort: 80
   selector:
     # copied form voting-pod
     # links service to voting pod
