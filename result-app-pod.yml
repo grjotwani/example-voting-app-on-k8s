@@ -12,5 +12,5 @@ spec:
       # https://hub.docker.com/r/dockersamples/examplevotingapp_result
       image: dockersamples/examplevotingapp_result
       ports:
-        - # exposes port 80 since its a webapp
+        # exposes port 80 since its a webapp
         - containerPort: 80
